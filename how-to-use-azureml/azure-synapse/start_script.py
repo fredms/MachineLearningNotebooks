@@ -10,10 +10,6 @@ args, unparsed = parser.parse_known_args()
 spark= SparkSession.builder.getOrCreate()
 sc = spark.sparkContext
 
-import subprocess
-r = subprocess.check_output("ls", shell=True, executable='/bin/bash') 
-print(r.decode())
-
 arr = sc._gateway.new_array(sc._jvm.java.lang.String, 2)
 arr[0] = args.input
 arr[1] = args.output
